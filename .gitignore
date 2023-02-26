@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,java,jspm,windows,oracleforms,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,java,jspm,windows,oracleforms,eclipse
 
+# 아래 파일 제외
+testig.txt
+
 ### Eclipse ###
 .metadata
 bin/
