@@ -66,7 +66,7 @@ $(document).ready(function(){
 			<!-- 같은 사용자면 글 수정과 삭제가 보이도록 조건문을 달음. 지금은 모든 상황에서 보이도록 출력한다. -->
 			<!-- c:if test="${sessionScope.authInfo != null && sessionScope.authInfo.memberEmail==dto.email}"-->
 				<input type="button" id="update" value="수정" /> 
-				<input type="button" id="delete" value="삭제" />   
+				<input type="button" id="delete" value="삭제" /> <!-- 삭제 기능 구현 오나료 -->
 			<!--/c:if-->
 
 		</form>

@@ -112,12 +112,16 @@ public class ReviewController {
 		MultipartFile file = dto.getReviewFilename();
 		
 		///// 여기를 수정해야한다.
-		if (!file.isEmpty()) {
+		// 첨부파일이 있으면 새로운 첨부파일로 저장해라
+		if (!file.isEmpty()) {			
 			UUID random = FileUpload.saveCopyFile(file, request);
 			dto.setRoute_name(random + "_" + file.getOriginalFilename());
 		}
 
 		reviewService.reviewUpdateProcess(dto, FileUpload.urlPath(request));
+		
+		// 아래 코드로 하면 될지도
+		// reviewService.reviewUpdateProcess(dto, FileUpload.urlPath(request));
 		
 		
 		// 최근 페이지 가져오기

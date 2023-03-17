@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 			<tr>
 				<th>첨부파일</th>
-				<td colspan="3"><input type="file" name="filename" /> <span>${fn:substringAfter(dto.route_name, "_") }</span>
+				<td colspan="3"><input type="file" name="reviewFilename" /> <span>${fn:substringAfter(dto.route_name, "_") }</span>
 				</td>
 			</tr>
 		</table>
