@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- [1] DataSource 빈 선언 -->
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+         <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+         <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1522:xe" />
+		<property name="username" value="hr" />
+		<property name="password" value="a1234" />
+   </bean>
+
+   <!-- [2] SqlSessionFactoryBean 빈 선언 -->
+   <bean id="sqlSessionFactoryBean"  class="org.mybatis.spring.SqlSessionFactoryBean">
+       <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations">
+         <list>
+           <value>classpath:mapper/pictureMapper.xml</value>          
+         </list>
+       </property> 
+       
+      <!--  <property name="configLocation" value="classpath:mybatis/configuration.xml" /> -->
+   </bean>
+   
+   
+   <!-- [3] SqlSessionTemplate 빈 선언 -->
+   <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+       <constructor-arg ref="sqlSessionFactoryBean" />
+   </bean>
+   
+   
+   
+  <bean id="pictureDao" class="dao.PictureDaoImp">
+     <property name="sqlSession" ref="sqlSession" />     
+     
+  </bean>
+ 
+  <!-- Spring JDBC나 Mybatis를 이용해서 DB연동을 처리하는 경우
+	     DataSourceTransactionManager이 트랜잭션 관리자로 사용된다. -->
+	<!-- [4] TransactionManager 빈 선언 -->
+	<!-- <bean id="transactionManager"
+	    class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <property name="dataSource" ref="dataSource" />    
+	</bean> -->
+ 
+
+   <!-- 파일 첨부 (여기 id는 임의로 정하면 안되고 꼭 이걸로 해야한다!! 첨부파일이 있는 글쓰기는 이걸로 됨)-->
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+     <property name="maxUploadSize" value="1000000000" />
+   </bean>
+   
+  
+  <!-- Service -->
+  <bean id="pictureService" class="service.PictureServiceImp">
+    <property name="pictureDao" ref="pictureDao" />
+  </bean>
+  
+  <!-- controller -->
+  <bean class="com.mycompany.myapp.PictureController" >
+   <property name="pictureService" ref="pictureService" />
+  </bean>
+ 
+  
+  <!-- tiles -->
+  <!-- <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    <property name="definitions">
+       <list>
+          <value>/WEB-INF/tiles/tiles.xml</value>
+       </list>
+    </property>
+  </bean> -->
+  
+   
+  <!-- View -->
+  <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+    <property name="order" value="1" /> <!-- 우선순위를 줌 -->
+  </bean>
+  
+  <!-- ViewResolver --> <!-- tiles를 이용해 view를 처리함 -->
+ <!--  <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+     <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+      <property name="order" value="2" />
+  </bean> -->
+  
+  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/WEB-INF/views/" />
+    <property name="suffix" value=".jsp" />
+     <property name="order" value="3" /> <!-- 항상 마지막 우선순위여야함 -->
+  </bean>
+  
+</beans>
