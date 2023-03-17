@@ -37,6 +37,12 @@
 	</definition>
 	
 	
+	<!-- 관리자용 리스트 -->
+	<definition name="review/adminList" extends="baseLayout">
+	<put-attribute name="content" value="/WEB-INF/views/review/adminList.jsp"/>
+	</definition>
+	
+	
 	<!-- board/write을 요청하면 /WEB-INF/views/review/write.jsp가 응답을 한다.-->
 	<definition name="review/write" extends="baseLayout">
 	<put-attribute name="content" value="/WEB-INF/views/review/write.jsp"/>
