@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>EasySeoul</title>
-<link rel="stylesheet" href="resources/css/home.css?after"> 
+<link rel="stylesheet" href="resources/css/home.css"> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script defer src="resources/js/first.js"></script>
@@ -38,20 +38,18 @@
 
 				<span class="iam">나는</span>
 				
-				<form action="" method="post">
+				<form action="" method="get" name='frm' id="frm">
 					<select name="info_type"
-						id="list">
-						<option value="alone">나 홀로</option>
+						id="info_type">
+						<option value="alone" selected="selected">나 홀로</option>
 						<option value="kids">아이와 함께</option>
 						<option value="parents">부모님과 함께</option>
 						<option value="friends">친구과 함께</option>
 					</select>
-				</form>
-
-				<form action="" method="post">
+				
 					<select name="info_theme"
-						id="current">
-						 <option value="Exhibition">문화 탐방을 하는</option>
+						id="info_theme">
+						<option value="Exhibition" selected="selected">문화 탐방을 하는</option>
 						<option value="Nature">자연을 즐기는</option>
 						<option value="Attraction">체험할 수 있는</option>
 						<option value="History">역사를 알아가는</option>
@@ -81,22 +79,24 @@
 						</c:forEach> --%>
 
 			<div class="content2_area">
-			<div class="slide_btn" id="slide_btn">
+			 <div class="slide_btn" id="slide_btn">
     <button class="prev" id="prev">&lt;</button>
 		</div>	
-    <div class="gallery-scroll" id="gallery-scroll">
+    <div class="gallery_scroll" id="gallery_scroll">
+    <div class="gallery_teel" id="gallery_teel">
     <c:forEach items="${pictureDtoList}" var="picture" >
     <div class="gallery_item" id="gallery_item">
-    <img class="gallery-img" src="
-    images/${picture.pic_name}" width="320" height="300" alt="symbol image" title="symbol image">
+    <img class="gallery_img" src="
+    images/${picture.pic_name}" width="280" height="300" alt="symbol image" title="symbol image">
     <div>${picture.info_title}</div>
   </div>
      </c:forEach> 
 		</div>
-		<div class="slide_btn" id="slide_btn" >
+		</div> <!-- end gallery-scroll -->
+			<div class="slide_btn" id="slide_btn" >
     <button class="next" id="next">&gt;</button>
-		</div>	
-     </div><!-- end gallery-scroll -->
+		</div>
+     </div>
     <%-- 
     
    <c:set var='picture_0' value="${pictureDtoList[0]}" />
