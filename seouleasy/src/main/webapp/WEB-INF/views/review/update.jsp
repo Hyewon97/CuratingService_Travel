@@ -17,7 +17,7 @@ $(document).ready(function(){
 	$('#cancle').click(function(){
 		alert('취소합니다.')
 		// dto의 값
-		$('#memberName').val('${dto.membersDTO.memberName}');
+		$('#easyuser_name').val('${dto.easyusersDTO.easyuser_name}');
 		$('#review_title').val('${dto.review_title}');
 		$('#review_content').val('${dto.review_content}');
 	});
@@ -35,8 +35,8 @@ $(document).ready(function(){
 		<table class="table table-bordered mt-1">
 			<tr>
 				<th>작성자</th> <!-- 멤버 코드 수정해야 하는 부분 -->
-				<td colspan="3"><input type="text" name="memberName" id="memberName"
-					value="${dto.membersDTO.memberName}"  readonly="readonly"/></td>				
+				<td colspan="3"><input type="text" name="easyuser_name" id="easyuser_name"
+					value="${dto.easyusersDTO.easyuser_name}"  readonly="readonly"/></td>				
 			</tr>
 			
 			<tr>

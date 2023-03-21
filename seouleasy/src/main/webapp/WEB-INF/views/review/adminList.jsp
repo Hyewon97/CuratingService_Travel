@@ -50,7 +50,7 @@
 					<c:param name="num" value="${dto.num}" />
 				</c:url> <!-- 들여쓰기 작업 --> <!-- 리뷰글 쓰는 코드 삭제. 코드 없음--> <a href="${path}">
 					${dto.review_title}</a></td>
-			<td class="text-center">${dto.membersDTO.memberName}</td>
+			<td class="text-center">${dto.easyusersDTO.easyuser_name}</td>
 
 
 			<!-- ========= 현재 작업중인 부분 =============== -->

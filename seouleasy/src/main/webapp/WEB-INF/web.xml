@@ -42,7 +42,7 @@
 			<!-- board 삭제하고 review를 넣음 -->
 			/WEB-INF/spring/appServlet/common-context.xml
 			/WEB-INF/spring/appServlet/review-context.xml
-			/WEB-INF/spring/appServlet/members-context.xml
+			/WEB-INF/spring/appServlet/easyusers-context.xml
 
 
 			

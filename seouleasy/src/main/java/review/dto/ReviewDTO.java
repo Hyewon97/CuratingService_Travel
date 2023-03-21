@@ -4,14 +4,22 @@ import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import members.dto.MembersDTO;
+import easyusers.dto.EasyusersDTO;
+
+//import easyusers.dto.EasyusersDTO;
 
 public class ReviewDTO {
 	private int num, review_count;
 	private String email, info_title, review_title, review_content;
 	private Date write_date;
 	
-	private MembersDTO membersDTO; // 합칠 때 easyuser로 수정해야 함
+//	private EasyusersDTO easyusersDTO;
+	
+	// easyuser DTO 추가
+	private EasyusersDTO easyusersDTO;
+	
+	
+
 
 	
 	// reivew 테이블의 파일 첨부를 처리하는 멤버변수
@@ -26,7 +34,7 @@ public class ReviewDTO {
 		
 	}
 
-	
+
 
 	// getter, setter
 	public int getNum() {
@@ -37,7 +45,7 @@ public class ReviewDTO {
 	public void setNum(int num) {
 		this.num = num;
 	}
-
+ 
 
 	public int getReview_count() {
 		return review_count;
@@ -99,19 +107,22 @@ public class ReviewDTO {
 	}
 
 
-	public MembersDTO getMembersDTO() {
-		return membersDTO;
-	}
-
-
-	public void setMembersDTO(MembersDTO membersDTO) {
-		this.membersDTO = membersDTO;
-	}
-
-
 	public String getRoute_name() {
 		return route_name;
 	}
+
+
+	// users s가 안 붙어져있어서 붙여봄
+	public EasyusersDTO getEasyusersDTO() {
+		return easyusersDTO;
+	}
+
+
+
+	public void setEasyusersDTO(EasyusersDTO easyusersDTO) {
+		this.easyusersDTO = easyusersDTO;
+	}
+
 
 
 	public void setRoute_name(String route_name) {

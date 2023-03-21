@@ -35,7 +35,7 @@ public class FileUpload {
 
 	public static String urlPath(HttpServletRequest request) {
 		String root = request.getSession().getServletContext().getRealPath("/");
-		System.out.print("root" + root);
+		//System.out.print("root" + root); 
 
 		// root 위치에 temp라는 폴더
 		String saveDirectory = root + "temp" + File.separator; // 구분자로 넣어도 됨 "temp" + "/"

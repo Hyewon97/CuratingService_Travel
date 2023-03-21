@@ -28,7 +28,7 @@ $(document).ready(function(){
 	<table class="table  table-bordered">
 		<tr>
 			<th width="20%">작성자</th>
-			<td>${dto.membersDTO.memberName}</td>
+			<td>${dto.easyusersDTO.easyuser_name}</td>
 			<th width="20%">조회수</th>
 			<td>${dto.review_count}</td> <!-- 여기 reviewCount였음 -->
 		</tr>
@@ -62,11 +62,13 @@ $(document).ready(function(){
 
 			<input type="button" id="list" value="리스트" /> 
 			
-			<!-- 같은 사용자면 글 수정과 삭제가 보이도록 조건문을 달음. 지금은 모든 상황에서 보이도록 출력한다. -->
-			<!-- c:if test="${sessionScope.authInfo != null && sessionScope.authInfo.memberEmail==dto.email}"-->
+			<!-- 같은 사용자면 글 수정과 삭제가 보이도록 조건문을 달음.-->
+			<!-- 관리자 이메일과 같다면 삭제, 수정 버튼이 보이기-->
+			<c:if test="${(sessionScope.authInfo != null && sessionScope.authInfo.email==dto.email)
+			||(sessionScope.authInfo != null && sessionScope.authInfo.email=='admin@email.com')}">
 				<input type="button" id="update" value="수정" /> 
-				<input type="button" id="delete" value="삭제" /> <!-- 삭제 기능 구현 오나료 -->
-			<!--/c:if-->
+				<input type="button" id="delete" value="삭제" /> 
+			</c:if>
 
 		</form>
 	</div>

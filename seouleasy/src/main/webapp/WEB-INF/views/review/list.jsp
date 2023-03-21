@@ -57,7 +57,7 @@
 				
 					<!-- 리뷰글 쓰는 코드 삭제. 코드 없음-->					
 					 <a href="${path}"> ${dto.review_title}</a></td>
-				<td class="text-center">${dto.membersDTO.memberName}</td>
+				<td class="text-center">${dto.easyusersDTO.easyuser_name}</td>
 				<td class="text-center">${dto.review_count}</td>
 			</tr>
 		</c:forEach>

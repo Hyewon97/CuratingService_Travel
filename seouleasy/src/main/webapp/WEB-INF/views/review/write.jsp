@@ -49,10 +49,10 @@
 
 			<tr>
 				<td width="20%" align="center">작성자</td>
-				<td><input type="hidden" name="memberEmail"
-					value="${sessionScope.authInfo.memberEmail}" /> <!-- 이 값이 보드에 저장이 된다. -->
-					<input type="text" name="memberName" size="30" maxlength="30"
-					readonly="readonly" value="${sessionScope.authInfo.memberName}" /></td>
+				<td><input type="hidden" name="email"
+					value="${sessionScope.authInfo.email}" /> <!-- 이 값이 보드에 저장이 된다. -->
+					<input type="text" name="easyuser_name" size="30" maxlength="30"
+					readonly="readonly" value="${sessionScope.authInfo.easyuser_name}" /></td>
 			</tr>
 
 			<!-- ref가 제목글이면 0, 제목글이 아니면 0이 아닌 값으로 넘어온다. -->

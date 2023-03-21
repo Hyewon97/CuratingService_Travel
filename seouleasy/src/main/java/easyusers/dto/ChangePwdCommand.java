@@ -1,11 +1,12 @@
-package members.dto;
+package easyusers.dto;
 
 public class ChangePwdCommand {
+
 	private String currentPassword;
 	private String newPassword;
 	
 	public ChangePwdCommand() {
-		
+
 	}
 
 	public String getCurrentPassword() {
@@ -25,4 +26,4 @@ public class ChangePwdCommand {
 	}
 	
 	
-}  
+}

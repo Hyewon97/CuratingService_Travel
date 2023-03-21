@@ -7,55 +7,47 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import members.dto.AuthInfo;
+import easyusers.dto.AuthInfo;
 
-
-public class AuthCheckInterceptor extends HandlerInterceptorAdapter{
+public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
+	
 	public AuthCheckInterceptor() {
-		
+
 	}
 	
+	//로그인 후 화면 보이기
 	
-	@Override // 컨트롤러가 수행 되기 전
+	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
-		
-		// 정상적으로 처리 됐으면 t를 리턴, 조건에 맞지 않으면 f를 리턴
-		// 인증이 되었는지 확인(로그인)
-		// false이면 세션이 없으면 그냥 null이고 
-		// true이면 세션이 없으면 세션 생성함
-		HttpSession session = request.getSession(false);
-		
+		throws Exception {
+	
+	//로그인 돼있는지 체크(인증됐는지 확인)
+	HttpSession session = request.getSession(false);
+	
 		if(session != null) {
 			AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
 			if(authInfo != null) {
-				return true;
+				return true;  //로그인 된 상태
 			}
-			
 		}
 		
-		// 환경설정에서 잡아줘야 한다.
-		response.sendRedirect(request.getContextPath() + "/member/login.do");
-		return false;
-		
-		
-	
-	}
-	
-	
-	@Override // 컨트롤러가 수행 된 후
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-		
-		super.postHandle(request, response, handler, modelAndView);
-	}
-	
-	
-	@Override // 컨트롤러가 수행 된 후 뷰 페이지를 응답하기 진전
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-			throws Exception {
-		
-		super.afterCompletion(request, response, handler, ex);
-	}
-	
-} // end class
+		//로그인이 안돼있을 경우 다시 로그인 화면이 보이도록 출력
+			response.sendRedirect(request.getContextPath() + "/easyuser/login.do");
+			return false;
+}
+
+@Override
+public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+		ModelAndView modelAndView) throws Exception {
+	// TODO Auto-generated method stub
+	super.postHandle(request, response, handler, modelAndView);
+}
+
+@Override
+public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+		throws Exception {
+	// TODO Auto-generated method stub
+	super.afterCompletion(request, response, handler, ex);
+}
+
+}

@@ -51,7 +51,6 @@ public class ReviewController {
 		return mav;
 	}
 
-	///////////////////////////////////// 현재 작업 위치 ///////////////////////////
 	// 관리자 페이지로 이동
 	@RequestMapping("/review/adminList.do")
 	public ModelAndView adminListExecute(@ModelAttribute("pv") PageDTO pv, ModelAndView mav) {
@@ -67,10 +66,9 @@ public class ReviewController {
 
 		}
 		mav.setViewName("review/adminList"); // review/adminList로 이동 (관리자용 페이지)
-		System.out.println();
+		//System.out.println();
 		return mav;
 	}
-	///////////////////////////////////////////////////////////////////
 
 	@RequestMapping(value = "/review/write.do", method = RequestMethod.GET)
 	public ModelAndView wrtieExecute(@ModelAttribute("dto") ReviewDTO dto, @ModelAttribute("pv") PageDTO pv,
@@ -98,15 +96,15 @@ public class ReviewController {
 
 		// 답변글 기능은 구현하지 않음
 
-		System.out.println(dto.getReview_title());
-		System.out.println(dto.getEmail()); // 시퀀스 값..인데 왜 안가지고 오지?
+		//System.out.println(dto.getReview_title());
+		//System.out.println(dto.getEmail()); // 시퀀스 값..인데 왜 안가지고 오지?
 
 		return "redirect:/review/list.do";
 	}
 
 	@RequestMapping("/review/view.do")
 	public ModelAndView viewExecute(int currentPage, int num, ModelAndView mav) {
-		System.out.printf("currentPage:%d, num:%d\n", currentPage, num);
+		//System.out.printf("currentPage:%d, num:%d\n", currentPage, num);
 		mav.addObject("dto", reviewService.reviewContentProcess(num));
 		mav.addObject("currentPage", currentPage);
 		mav.setViewName("review/view");
@@ -156,7 +154,7 @@ public class ReviewController {
 	//  관리자가 삭제
 	@RequestMapping("/review/adminDelete.do")
 	public String adminDeleteExecute(int num, int currentPage, HttpServletRequest request, RedirectAttributes ratt) {
-		System.out.println("num:" + num);
+		//System.out.println("num:" + num);
 		ratt.addAttribute("currentPage", currentPage);
 		reviewService.reviewDeleteProcess(num, FileUpload.urlPath(request));
 		

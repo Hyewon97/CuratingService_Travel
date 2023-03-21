@@ -31,7 +31,6 @@ public class ReviewDownLoadView extends AbstractView {
 			HttpServletResponse response) throws Exception {
 		
 		
-		/////////////////// 수정해야 하는 부분
 		
 		int num= Integer.parseInt(request.getParameter("num"));
 		String saveDirectory = FileUpload.urlPath(request); // 파일이 저장되어 있는 웹 서버 위치를 가져온다.

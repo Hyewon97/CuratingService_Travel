@@ -27,6 +27,7 @@ public class ReviewDaoImp implements ReviewDAO {
 
 	@Override
 	public List<ReviewDTO> reviewList(PageDTO pv) {
+		
 		return sqlSession.selectList("review.reviewList",pv);
 	}
 
