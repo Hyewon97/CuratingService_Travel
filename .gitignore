@@ -4,6 +4,12 @@
 # 아래 파일 제외
 testig.txt
 
+# 알집 파일 제외하고 올리기
+*egg
+
+# 폴더 무시
+pictures/
+
 ### Eclipse ###
 .metadata
 bin/

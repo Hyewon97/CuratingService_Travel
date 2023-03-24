@@ -2,14 +2,18 @@ package easyusers.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,27 +45,31 @@ public class EasyusersController {
 	@RequestMapping(value = "/easyuser/signup.do", method = RequestMethod.GET)
 	public ModelAndView addEasyuser(ModelAndView mav) {
 		mav.setViewName("easyuser/signup");
-		return mav;
+		return mav;  
 	}
 
 	//닉네임 중복확인
-	@PostMapping(value = "/easyuser/checkNickname.do")
+	@RequestMapping(value = "/easyuser/checkNickname.do", method=RequestMethod.GET)
 	@ResponseBody
-	public String checkNickname(@RequestParam String nick_name, HttpServletResponse response) {
+	public ResponseEntity<Map <String, String>> checkNickname( @RequestParam("nick_name")   String  nick_name, HttpServletResponse response, Map<String, String> map) {
+		
 	    try {
+	    	
 	        boolean isDuplicate = easyusersService.checkDuplicateNickname(nick_name);
+
 	        if (isDuplicate) {
-	            // If the nickname is a duplicate, return an error message
-	            return "Nickname already exists";
+	            map.put("chk", "1");
 	        } else {
-	            // If the nickname is not a duplicate, return a success message
-	            return "Nickname available";
+	            map.put("chk", "0");
 	        }
+	        return ResponseEntity.ok().body(map);
 	    } catch (Exception e) {
-	        // Catch any exceptions and display a generic error message
-	        String errorMessage = "An error occurred while checking the nickname. Please try again later.";
-	        return errorMessage;
+	    	
+	        String errorMessage = "닉네임을 확인하는 동안 에러가 발생했습니다. 잠시 후 다시 시도해주세요.";
+	         map.put("errorMessage", errorMessage);
 	    }
+	    
+	      return ResponseEntity.notFound().build();
 	}
 	
 	 //회원가입 처리
@@ -90,19 +98,8 @@ public class EasyusersController {
 			AuthInfo authInfo = easyusersService.loginProcess(easyusersDTO);
 			session.setAttribute("authInfo", authInfo);
 
-			// 이메일 기억하기
-			Cookie rememberCookie = new Cookie("REMEMBER", easyusersDTO.getEmail());
-			rememberCookie.setPath("/");
-
-			if (easyusersDTO.isRememberEmail()) {
-				rememberCookie.setMaxAge(60 * 60 * 24 * 30);
-			} else {
-				rememberCookie.setMaxAge(0);
-			}
-
-			resp.addCookie(rememberCookie);
-
 			return "redirect:/home.do";
+			
 		} catch (WrongEmailPasswordException e) {
 			resp.setContentType("text/html;charset=UTF-8");
 
