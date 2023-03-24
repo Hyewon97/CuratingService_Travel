@@ -5,7 +5,7 @@ public class AuthInfo {
 
 	private String email;
 	private String easyuser_pass;
-	private String easyuser_name;
+	private String nick_name;
 	
 	public AuthInfo() {
 
@@ -18,11 +18,11 @@ public class AuthInfo {
 
 	}
 
-	public AuthInfo(String email, String easyuser_name, String easyuser_pass) {
+	public AuthInfo(String email, String nick_name, String easyuser_pass) {
 		super();
 		this.email = email;
 		this.easyuser_pass = easyuser_pass;
-		this.easyuser_name = easyuser_name;
+		this.nick_name = nick_name;
 		this.easyuser_pass = easyuser_pass;
 	}
 	
@@ -35,7 +35,7 @@ public class AuthInfo {
 	}
 
 	public String getEasyuser_name() {
-		return easyuser_name;
+		return nick_name;
 	}
 	
 	

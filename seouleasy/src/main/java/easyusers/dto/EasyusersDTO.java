@@ -14,7 +14,6 @@ public class EasyusersDTO {
 	private int birth;
 	private int easyuser_type; // 회원구분
 	private int easyuser_num; // 회원번호
-	private boolean rememberEmail; // 자동로그인 기능
 
 	public EasyusersDTO() {
 
@@ -93,13 +92,6 @@ public class EasyusersDTO {
 		this.easyuser_num = easyuser_num;
 	}
 
-	public boolean isRememberEmail() {
-		return rememberEmail;
-	}
-
-	public void setRememberEmail(boolean rememberEmail) {
-		this.rememberEmail = rememberEmail;
-	}
 
 	// 로그인시 입력한 비번과 DB상 비번이 맞는지 확인(EasyuserServiceImp에서 예외처리 후 넘어옴)
 	public boolean matchPassword(String easyuser_pass) {

@@ -4,11 +4,14 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
+
+	
 	<!-- interceptor 환경 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
@@ -17,8 +20,6 @@
 			<mvc:exclude-mapping path="/easyuser/login.do" />
 			<mvc:exclude-mapping path="/easyuser/signup.do" />
 
-			<!-- <mvc:exclude-mapping path="/board/list.do"/> <mvc:exclude-mapping 
-				path="/board/view.do"/> -->
 
 			<!-- 리뷰 리스트, 뷰 추가 -->
 			<mvc:exclude-mapping path="/review/list.do" />
@@ -46,11 +47,16 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations">
 			<list>
-				<!-- <value>classpath:mapper/boardMapper.xml</value> -->
 				<value>classpath:mapper/easyuserMapper.xml</value>
 
 				<!-- 리뷰 매퍼 추가 -->
 				<value>classpath:mapper/reviewMapper.xml</value>
+				
+				<!-- 공지사항 매퍼 추가 -->
+				<value>classpath:mybatis/notiMapper.xml</value>
+				
+				 <value>classpath:mapper/pictureMapper.xml</value>   
+				
 			</list>
 		</property>
 
@@ -100,9 +106,7 @@
 	</bean>
 
 
-	<!-- controller -->
-	<bean class="com.mycompany.myapp.HomeController" />
-
+	
 
 
 	<!-- tiles -->

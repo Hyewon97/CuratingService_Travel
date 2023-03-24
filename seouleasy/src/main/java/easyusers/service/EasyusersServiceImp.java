@@ -1,7 +1,5 @@
 package easyusers.service;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
 import common.exception.WrongEmailPasswordException;
@@ -35,8 +33,8 @@ public class EasyusersServiceImp implements EasyusersService{
 	//닉네임 중복체크
 	@Override
 	public boolean checkDuplicateNickname(String nick_name) {
-	    int count = sqlsession.selectOne("easyuser.checkDuplicateNickname", nick_name);
-	    return (count > 0);
+	    int count = easyusersDao.selectByNickname(nick_name);
+	    return (count> 0);
 	}
 	
 	//로그인하기

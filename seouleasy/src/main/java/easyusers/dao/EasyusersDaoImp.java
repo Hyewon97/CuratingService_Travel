@@ -28,8 +28,9 @@ public class EasyusersDaoImp implements EasyusersDAO{
 	
 	//닉네임 중복체크
 	@Override
-	public EasyusersDTO selectByNickname(String nick_name) {
-	    return sqlSession.selectOne("easyuser.selectByNickname", nick_name);
+	public int selectByNickname(String nick_name) {
+		
+	    return sqlSession.selectOne("easyuser.checkDuplicateNickname", nick_name);
 	}
 
 	//회원정보 수정

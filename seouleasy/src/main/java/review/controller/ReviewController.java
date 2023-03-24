@@ -70,10 +70,24 @@ public class ReviewController {
 		return mav;
 	}
 
+	// 로그인이 안된 상태면 "로그인이 필요합니다" 알람 띄우고 로그인 주소를 넘겨준다. -> 알람 기능 구현은 못함. 로그인 페이지로 넘어감
 	@RequestMapping(value = "/review/write.do", method = RequestMethod.GET)
 	public ModelAndView wrtieExecute(@ModelAttribute("dto") ReviewDTO dto, @ModelAttribute("pv") PageDTO pv,
-			ModelAndView mav) {
+			ModelAndView mav, HttpSession session) {
+		
+		// 세션 확인
+		Object sessionObj = session.getAttribute("authInfo");
+		
+		// 세션 정보 확인
+//		System.out.println(sessionObj);
+	    if (sessionObj == null) {
 
+	    	
+	    	 mav.setViewName("redirect:/easyuser/login.do");
+	    	
+	        return mav;
+	    }
+		
 		mav.setViewName("review/write");
 		return mav;
 	}
@@ -103,14 +117,26 @@ public class ReviewController {
 	}
 
 	@RequestMapping("/review/view.do")
-	public ModelAndView viewExecute(int currentPage, int num, ModelAndView mav) {
+	public ModelAndView viewExecute(int currentPage, int num, ModelAndView mav,HttpSession session) {
 		//System.out.printf("currentPage:%d, num:%d\n", currentPage, num);
+			
+		// 세션 확인
+				Object sessionObj = session.getAttribute("authInfo");
+				
+				// 세션 정보 확인
+//				System.out.println(sessionObj);
+			    if (sessionObj == null) {			    	
+			    	 mav.setViewName("redirect:/easyuser/login.do");			    	
+			        return mav;
+			    }
+		
 		mav.addObject("dto", reviewService.reviewContentProcess(num));
 		mav.addObject("currentPage", currentPage);
 		mav.setViewName("review/view");
 		return mav;
 	}
 
+	
 	@RequestMapping(value = "/review/update.do", method = RequestMethod.GET)
 	public ModelAndView updateExecute(int num, int currentPage, ModelAndView mav) {
 		mav.addObject("dto", reviewService.reviewUpdateSelectProcess(num));

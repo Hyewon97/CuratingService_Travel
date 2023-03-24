@@ -7,10 +7,21 @@
 <!-- /myapp 프로젝트 경로 리턴 -->
 
 
+<script>
+	$(document).ready(function() {
+		$('#write').click(function() {
+			$('#frm').attr('action', 'write.do').submit();
+		});
+
+	});
+</script>
+
+
 <div id="bodywrap">
 	<div id="photoZone">
 	
 		<!-- 이미지 사진이랑 글 보여주기 테이블은 1*2로 -->
+		<h1>여행지? 장소?</h1><br/>
 		<table border="1" bgcolor="pink" align="center">
 			<tr>
 				<td><img src="../resources/images/test.jpg" width="500px"
@@ -30,14 +41,12 @@
 	</div>
 	
 	<div>
-	<!-- 글 쓰기 버튼 -->
-	<div><br/><br/></div> <!-- 여백 -->
-	<form id="frm" method="get" action="write.do" align="center">
-		<input type="submit" id="btnWrite" value="리뷰쓰기">
-	</form>
-	<div><br/><br/></div> <!-- 여백 -->
+	<br/><br/><br/><br/>
 	</div>
-
+	
+	
+	
+	<h1>리뷰</h1><br/>
 	<table class="table table-border mt-1">
 		<tr>
 			<th class="col-md-1 text-center">번호</th>
@@ -63,6 +72,7 @@
 		</c:forEach>
 
 	</table>
+	
 
 	<ul class="pagination justify-content-center mt-5 mb-5">
 
@@ -101,6 +111,26 @@
 		</c:if>
 		<!-- 다음 출력 끝 -->
 	</ul>
+	
+	
+	
+	
+				<div class="text-center mt-5 mb-5">
+					<form name="frm" id="frm" method="get" action="write.do" align="center">
+							<input type="button" id="write" value="리뷰 등록" />
+					</form>
+				</div>
+	
+	
+	
+<!-- 	
+	<div>
+	<form id="frm" method="get" action="write.do" align="center">
+		<input type="submit" id="btnWrite" value="리뷰쓰기">
+	</form>
+	<div>
+	 -->
+	
 </div>
 
 

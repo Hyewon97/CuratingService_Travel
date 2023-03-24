@@ -8,23 +8,25 @@
   $(document).ready(function(){
 	  let returnUrl = "${param.returnUrl}";
 	  if(returnUrl != "")
-		  alert(returnUrl + "요청한 페이지는 회원에게만 제공됩니다.");
+		  alert(returnUrl + "요청한 페이지는 회원에게만 제공됩니다."); 
 	  
 	  
-	  if("${easyusersDTO}"){	     
+	  
+	  /* 	  if("${easyusersDTO}"){	     
 	     $("#email").val("${easyusersDTO.email}");
 	     $("#rememberEmail").prop('checked',true);	     
 	  }
-	  
 	  
 	  $('#rememberEmail').click(function(){
 		  let chk = $(this).is(":checked");
 		  console.log(chk);
 		  if(!chk){
 			  $.removeCookie('REMEMBER',  { path: '/' });
-		  }
-	  });
+		  } 
+	  });*/
   });
+  
+  
 </script>
  
      <div class="container mb-5">			
