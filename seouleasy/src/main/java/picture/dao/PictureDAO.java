@@ -10,5 +10,6 @@ import picture.dto.PictureDTO;
 public interface PictureDAO {
 	
 	public List<PictureDTO> selectinfo(Map<String, String> map);
+	
    
 }

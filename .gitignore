@@ -6,9 +6,11 @@ testig.txt
 
 # 알집 파일 제외하고 올리기
 *egg
+*zip
 
 # 폴더 무시
 pictures/
+final_01/
 
 ### Eclipse ###
 .metadata

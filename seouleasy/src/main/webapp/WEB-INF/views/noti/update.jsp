@@ -7,31 +7,35 @@
 
 <script>
 $(document).ready(function(){
-	  $('#update').click(function(){
-	    var title = $('[name=notice_title]').val();
-	    var content = $('[name=notice_content]').val();
-	    
-	    if (title.trim() === '' || content.trim() === '') {
-	      alert('제목과 내용을 작성해주세요.');
-	      return;
-	    }
-	    
-	    $('[name=notice_content]').val(content.replace(/\n/gi,'<br/>'));
-	    $('#frm').attr('action', 'update.do').submit();
-	  });
-
-	  $('#cancel').click(function(){
-	    alert('Cancel.');
-	    $('#easyuser_name').val('${dto.easyusersDTO.easyuser_name}');
-	    $('#notice_title').val('${dto.notice_title}');
-	    $('#notice_content').val('${dto.notice_content}');
-	  });
-
-	  $('#back').click(function(){
-	    history.go(-1);
-	  });
+	$('#update').click(function(){
+		
+		 var title = $('[name=notice_title]').val();
+		    var content = $('[name=notice_content]').val();
+		    
+		    if (title.trim() === '' || content.trim() === '') {
+		      alert('제목과 내용을 작성해주세요.');
+		      return;
+		    }
+		    
+		$('[name=notice_content]').val($('[name=notice_content]').val().replace(/\n/gi,'<br/>'));
+		$('#frm').attr('action', 'update.do').submit();
 	});
-
+	
+	
+ 	$('#cancle').click(function(){
+		alert('취소합니다.')
+		// dto의 값
+		$('#notice_title').val('${dto.notice_title}');
+		$('#notice_content').val('${dto.notice_content}');
+	});
+	 
+	 
+	// 뒤로가기 버튼
+	$('#back').click(function(){
+		history.go(-1);
+	});
+	
+});
 </script>
 
 <div class="container">
@@ -42,7 +46,7 @@ $(document).ready(function(){
 				<th>작성자</th>
 				<td colspan="3">
 				<input type="text" name="easyuser_name" id="easyuser_name"
-					value="${dto.easyusersDTO.easyuser_name}"  readonly="readonly"/></td>	 			
+					value="관리자"  readonly="readonly"/></td>	 			
 			</tr>
 			
 			<tr>

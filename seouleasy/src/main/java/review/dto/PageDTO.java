@@ -14,6 +14,8 @@ public class PageDTO {
 
 	private String searchKey;
 	private String searchWord;
+	
+	 private String info_title; // 덕수궁 때문에 추가, 게터랑 세터도 추가됨
 
 	public PageDTO() {
 
@@ -149,6 +151,14 @@ public class PageDTO {
 
 	public void setSearchWord(String searchWord) {
 		this.searchWord = searchWord;
+	}
+
+	public String getInfo_title() {
+		return info_title;
+	}
+
+	public void setInfo_title(String info_title) {
+		this.info_title = info_title;
 	}
 	
 	

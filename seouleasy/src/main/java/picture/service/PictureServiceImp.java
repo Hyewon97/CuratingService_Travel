@@ -19,6 +19,6 @@ public class PictureServiceImp implements PictureService {
 			return pictureDao.selectinfo(map);
 		}
 	
-	
+	  
 	
 }

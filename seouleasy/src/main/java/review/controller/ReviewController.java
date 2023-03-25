@@ -1,10 +1,9 @@
 package review.controller;
 
-import java.util.UUID;
 
+import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import common.file.FileUpload;
+import information.service.InformationService;
 import review.dto.PageDTO;
 import review.dto.ReviewDTO;
 import review.service.ReviewService;
@@ -23,21 +22,29 @@ import review.service.ReviewService;
 public class ReviewController {
 
 	private ReviewService reviewService;
+	 private InformationService informationService;
 	private PageDTO pdto;
 
 	public ReviewController() {
 
 	}
 
+	
+		
+		public void setInformationService(InformationService informationService) {
+			this.informationService = informationService;
+		}
 	public void setReviewService(ReviewService reviewService) {
 		this.reviewService = reviewService;
 	}
 
 	// 페이징 작업
 	@RequestMapping("/review/list.do")
-	public ModelAndView listExecute(@ModelAttribute("pv") PageDTO pv, ModelAndView mav) {
+	public ModelAndView listExecute(@ModelAttribute("pv") PageDTO pv, String info_title, String info_content, ModelAndView mav) {
 		int totalRecord = reviewService.reviewCountProcess();
-//		System.out.println(totalRecord); // 데이터 넘어오는지 확인. 총 개수 확인
+		
+		//System.out.println("인포 타이틀 : "+info_title);
+		
 
 		if (totalRecord >= 1) {
 			if (pv.getCurrentPage() == 0)
@@ -45,30 +52,30 @@ public class ReviewController {
 			this.pdto = new PageDTO(pv.getCurrentPage(), totalRecord);
 			mav.addObject("pv", this.pdto);
 			mav.addObject("aList", reviewService.reviewListProcess(this.pdto));
-
+			mav.addObject("infoList", informationService.chooseinfo_process(info_title));
+ 
 		}
 		mav.setViewName("review/list"); // review/list로 이동
 		return mav;
 	}
 
-	// 관리자 페이지로 이동
-	@RequestMapping("/review/adminList.do")
-	public ModelAndView adminListExecute(@ModelAttribute("pv") PageDTO pv, ModelAndView mav) {
-		int totalRecord = reviewService.reviewCountProcess();
-//			System.out.println(totalRecord); // 데이터 넘어오는지 확인. 총 개수 확인
-
-		if (totalRecord >= 1) {
-			if (pv.getCurrentPage() == 0)
-				pv.setCurrentPage(1); // 현재 페이지에 1을 넣어줌
-			this.pdto = new PageDTO(pv.getCurrentPage(), totalRecord);
-			mav.addObject("pv", this.pdto);
-			mav.addObject("aList", reviewService.reviewListProcess(this.pdto));
-
-		}
-		mav.setViewName("review/adminList"); // review/adminList로 이동 (관리자용 페이지)
-		//System.out.println();
-		return mav;
-	}
+	// 관리자 페이지로 이동... 관리자 페이지 미구현.
+	/*
+	 * @RequestMapping("/review/adminList.do") public ModelAndView
+	 * adminListExecute(@ModelAttribute("pv") PageDTO pv, ModelAndView mav) { int
+	 * totalRecord = reviewService.reviewCountProcess(); //
+	 * System.out.println(totalRecord); // 데이터 넘어오는지 확인. 총 개수 확인
+	 * 
+	 * if (totalRecord >= 1) { if (pv.getCurrentPage() == 0) pv.setCurrentPage(1);
+	 * // 현재 페이지에 1을 넣어줌 this.pdto = new PageDTO(pv.getCurrentPage(), totalRecord);
+	 * mav.addObject("pv", this.pdto); mav.addObject("aList",
+	 * reviewService.reviewListProcess(this.pdto));
+	 * 
+	 * } mav.setViewName("review/adminList"); // review/adminList로 이동 (관리자용 페이지)
+	 * //System.out.println(); return mav; }
+	 */
+	
+	
 
 	// 로그인이 안된 상태면 "로그인이 필요합니다" 알람 띄우고 로그인 주소를 넘겨준다. -> 알람 기능 구현은 못함. 로그인 페이지로 넘어감
 	@RequestMapping(value = "/review/write.do", method = RequestMethod.GET)
@@ -108,23 +115,20 @@ public class ReviewController {
 
 		reviewService.reviewInsertProcess(dto); // 제목글에 대해서
 
-		// 답변글 기능은 구현하지 않음
+		
 
-		//System.out.println(dto.getReview_title());
-		//System.out.println(dto.getEmail()); // 시퀀스 값..인데 왜 안가지고 오지?
-
-		return "redirect:/review/list.do";
+		/* return "redirect:/review/list.do"; 
+		 * */
+		return "redirect:/home.do";
 	}
 
 	@RequestMapping("/review/view.do")
 	public ModelAndView viewExecute(int currentPage, int num, ModelAndView mav,HttpSession session) {
-		//System.out.printf("currentPage:%d, num:%d\n", currentPage, num);
+
 			
-		// 세션 확인
+				// 세션 확인
 				Object sessionObj = session.getAttribute("authInfo");
 				
-				// 세션 정보 확인
-//				System.out.println(sessionObj);
 			    if (sessionObj == null) {			    	
 			    	 mav.setViewName("redirect:/easyuser/login.do");			    	
 			        return mav;
@@ -195,5 +199,9 @@ public class ReviewController {
 		mav.setViewName("download");
 		return mav;
 	}
-
+	
+	
+  
+	
+	
 }
