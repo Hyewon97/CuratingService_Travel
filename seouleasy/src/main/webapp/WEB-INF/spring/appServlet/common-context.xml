@@ -55,7 +55,11 @@
 				<!-- 공지사항 매퍼 추가 -->
 				<value>classpath:mybatis/notiMapper.xml</value>
 				
+				<!-- 메인 매퍼 추가 -->
 				 <value>classpath:mapper/pictureMapper.xml</value>   
+				 
+				 <!-- 정보 매퍼 추가 -->
+				 <value>classpath:mapper/informationMapper.xml</value>  
 				
 			</list>
 		</property>

@@ -34,7 +34,7 @@
              
             <div class="mb-3">
                <label for="passChk">비밀번호 확인</label>
-               <input type="password" id="pwChk" class="form-control" onkeyup="isSame();"
+               <input type="password" id="pwChk" class="form-control" onkeyup="isSame();" name="easyuser_pass" 
                pattern="[a-zA-Z0-9]{8,15}" placeholder="영문,숫자 8~15자" required>
             <div class="invalid-feedback">
                  비밀번호가 일치하지 않습니다.

@@ -8,8 +8,9 @@
 <script>
 $(document).ready(function(){
 	$('#update').click(function(){
-		  // check if title and content are not blank
-		  if ($('#review_title').val().trim() !== '' && $('#review_content').val().trim() !== '') {
+		
+		// 공백일때 알람띄우기
+		if ($('#review_title').val().trim() !== '' && $('#review_content').val().trim() !== '') {
 		    // replace new lines with <br> tags in content
 		    $('[name=review_content]').val($('[name=review_content]').val().replace(/\n/gi,'<br/>'));
 		    $('#frm').attr('action', 'update.do').submit();
@@ -17,7 +18,7 @@ $(document).ready(function(){
 		    alert('제목과 내용을 작성해주세요.');
 		  }
 		});
-
+	
 	
 	// 멤버 코드 추가하면 수정해야 하는 부분 
 	$('#cancle').click(function(){

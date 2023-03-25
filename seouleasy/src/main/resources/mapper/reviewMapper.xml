@@ -32,7 +32,7 @@
 	<!-- 사용자 이름은 나오는데 다른 데이터는 출력이 안됨. 어째서? -->
 	<!-- 데이터 출력 됨. DTO 변수명이랑 오라클 변수명이랑 같아야 한다. -->
 	<!-- 해결 됨 -->
-	<select id="reviewList" parameterType="review.dto.PageDTO" resultMap="listSelect">
+	<!-- <select id="reviewList" parameterType="review.dto.PageDTO" resultMap="listSelect">
 	<![CDATA[ 
 		SELECT b.*
 		FROM(SELECT rownum AS rm, a.*
@@ -41,6 +41,22 @@
 			WHERE r.email=m.email(+)
 			ORDER BY num DESC, write_date ASC)a)b
 			WHERE b.rm>=#{startRow} AND b.rm<=#{endRow}
+		]]>
+	</select> -->
+	
+
+	<!-- 덕수궁 때문에 추가 -->
+	<!-- r.info_title= #{info_title, jdbcType=VARCHAR} -->
+	<!-- info_title이 null값으로 들어오는거 같음 -->
+	<select id="reviewList" parameterType="review.dto.PageDTO" resultMap="listSelect">
+	<![CDATA[ 
+		SELECT b.*
+		FROM(SELECT rownum AS rm, a.*
+			FROM(SELECT r.*, m.easyuser_name
+			FROM review r, easyuser m
+			WHERE (r.email=m.email(+)) and r.info_title= #{info_title, jdbcType=VARCHAR}
+			ORDER BY num DESC, write_date ASC)a)b
+			WHERE (b.rm>=#{startRow} AND b.rm<= #{endRow})
 		]]>
 	</select>
 
@@ -53,8 +69,7 @@
 	<!-- 멤버 이메일로 수정 완. 상세페이지 연결 후 info_title을 받아와야 함 -->
 	<insert id="reviewSave" parameterType="review.dto.ReviewDTO">
 		INSERT INTO review(num, email,info_title,review_title, review_content,write_date,review_count,route_name)
-		VALUES (review_seq.nextval, #{email, jdbcType=VARCHAR}, 'info_title', #{review_title, jdbcType=VARCHAR}, #{review_content, jdbcType=VARCHAR}, sysdate, 0, #{route_name, jdbcType=VARCHAR})
-   <!-- VALUES (review_seq.nextval, #{email, jdbcType=VARCHAR}, #{info_title, jdbcType=VARCHAR}, #{review_title, jdbcType=VARCHAR}, #{review_content, jdbcType=VARCHAR}, sysdate, 0, #{route_name, jdbcType=VARCHAR}) -->		 
+		VALUES (review_seq.nextval, #{email, jdbcType=VARCHAR}, #{info_title, jdbcType=VARCHAR}, #{review_title, jdbcType=VARCHAR}, #{review_content, jdbcType=VARCHAR}, sysdate, 0, #{route_name, jdbcType=VARCHAR})	 
 	</insert>
 	
 	
@@ -110,7 +125,7 @@
 	</delete>
 
 
-
+   
 
 
 </mapper>

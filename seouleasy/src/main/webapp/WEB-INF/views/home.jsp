@@ -102,8 +102,8 @@
     <div class="gallery_teel" id="gallery_teel">
     <c:forEach items="${pictureDtoList}" var="picture" >
     <div class="gallery_item" id="gallery_item">
-    <img class="gallery_img" src="
-    images/${picture.pic_name}" width="300" height="300">
+    <a href="review/list.do?currentPage=1&info_title=${picture.info_title}"><img class="gallery_img" src="
+    images/${picture.pic_name}" width="300" height="300"></a>
     <div>${picture.info_title}</div>
     <div>${picture.info_content}</div>
   </div>
