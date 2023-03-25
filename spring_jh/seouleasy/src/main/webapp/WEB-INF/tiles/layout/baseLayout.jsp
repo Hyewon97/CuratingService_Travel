@@ -8,33 +8,33 @@
 <head>
 <meta charset="UTF-8">
 <title><tiles:insertAttribute name="title" /></title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 
-rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
-crossorigin="anonymous"> 
- <%-- <link href="<c:url value="/resources/css/bootstrap.min.css"/>"
-	rel="stylesheet"> 서비스 때는 이거 쓰는 게 좋음 --%>
+<link rel="stylesheet" href="resources/css/baseLayout.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
+<!-- Header 영역 -->
+	<div class="wrapper">
+		<div class="wrap">
+			<div class="top_area">
 	<tiles:insertAttribute name="header" />
-	<div class="jumbotron" align="center">
-		<div class="container">
-			<h1 class="display-3">
+	     <tiles:insertAttribute name="title" />
 				<tiles:insertAttribute name="heading" />
-			</h1>
-			<p>
-				<tiles:insertAttribute name="subheading" />
-			</p>
 		</div>
-	</div>
+		
 
-	<div class="container">
-		<div class="row">
+	<div class="contanier">
 			<tiles:insertAttribute name="content" />
-		</div>
-	</div>
+		       <tiles:insertAttribute name="body" />
+</div>
 
-	<div class="footer">
+<!-- Footer 영역 -->
+			<div class="footer_nav">
+				<div class="footer_nav_container"></div>
+			</div>
+			<!-- class="footer_nav" -->
 		<tiles:insertAttribute name="footer" />
-	</div>
+	</div> <!-- class="wrap -->
+		</div> <!-- class="wrapper -->
 </body>
 </html>

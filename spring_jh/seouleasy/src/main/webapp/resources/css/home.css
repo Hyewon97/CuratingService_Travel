@@ -4,253 +4,171 @@
 	padding:0;
 }
 
-/*   body * {
+/* body * {
   outline: 2px dashed salmon;
-}    */ 
-
-/* 화면 전체 렙 */
-.wrapper{
-	width: 100%;
-}
-/* content 랩 */
-.wrap{
-	width : 1300px;
-	margin: auto;
-}
-/* 로고, 테마여행 여행스타일, 공지사항, 로그인 */
-.top_area{
-	width: 100%;
-    height: 100px;
-    margin: auto;
-    /* background-color: #f7f0b9; */
-}
-/* 로고 영역 */
-.logo_area{
-	width: 25%;
-	height: 100%;
-	/*background-color: red;*/
-	display: inline-block;
-	float:left;
-}
-.logo_area img{
-    width: 100%;
-    height: 100%;
-}
- 
-/* 테마여행 여행스타일 영역 */
-.theme_area{
-	width: 20%;
-	height: 100%;
-	/*background-color: yellow;*/
-	display: inline-block;
-	float:left;	
-}
-
-.theme_button{
-	text-decoration: none; /* 링크 밑줄 제거 */
-	display: inline-block; /* 인라인 블록 요소로 지정 */
-	width: 84%;
-    height: 80px;
-    font-size: 30px;
-    font-weight: 900;  /* 글자 굵기 */
-    border: none;   /* 테두리 없애기 */
-    background-color: transparent;  /* 백그라운드 색 없애기 */	
-    margin-top : 10px; 
-    margin-left : 20px;
-    cursor: pointer; /* 마우스 커서 모양 변경 */
-    
-}
-
-.freestyle_area{
-	width: 20%;
-	height: 100%;
-	/*background-color: purple;*/
-	display: inline-block;
-	float:left;	
-}
-
-.freestyle_button{
-	text-decoration: none; /* 링크 밑줄 제거 */
-	display: inline-block; /* 인라인 블록 요소로 지정 */
-	width: 84%;
-    height: 80px;
-    font-size: 30px;
-    font-weight: 900;  /* 글자 굵기 */
-    border: none;   /* 테두리 없애기 */
-    background-color: transparent;  /* 백그라운드 색 없애기 */
-    margin-top : 10px;
-    margin-left : 20px;
-    cursor: pointer; /* 마우스 커서 모양 변경 */
-}
+}  */  
 
 
-
-/* 공지사항 버튼 영역*/
-.notice_area{
-	width: 20%;
-	height: 100%;
-	/*background-color: blue;*/
-	float:left;	
+/*--------좌우슬라이딩---------*/
+.content0_area{
+    width: 1300px;
+    height: 800px;
+    margin: 0 auto;
 }
 
-.notice_button{
-	text-decoration: none; /* 링크 밑줄 제거 */
-	display: inline-block; /* 인라인 블록 요소로 지정 */
-	width: 84%;
-    height: 80px;
-    font-size: 30px;
-    font-weight: 900;  /* 글자 굵기 */
-    border: none;   /* 테두리 없애기 */
-    background-color: transparent;  /* 백그라운드 색 없애기 */
-    margin-top : 10px;
-    cursor: pointer; /* 마우스 커서 모양 변경 */
+#slide1{
+    height: 800px;
+    overflow: hidden;
+    border-bottom: 1px solid dimgrey;
 }
-
-
-/* 로그인 버튼 영역 */
-.login_area{
-	width: 15%;
-	height: 100%;
-	/*background-color: blue;*/
-	float:left;	
+#slide1>ul{
+    width: 3900px;
+    font-size: 0;
 }
-
-.login_button{
-	text-decoration: none; /* 링크 밑줄 제거 */
-	display: inline-block; /* 인라인 블록 요소로 지정 */
-	width: 84%;
-    height: 80px;
-    font-size: 30px;
-    font-weight: 900;  /* 글자 굵기 */
-    border: none;   /* 테두리 없애기 */
-    background-color: transparent;  /* 백그라운드 색 없애기 */
-    margin-top : 10px;
-    cursor: pointer; /* 마우스 커서 모양 변경 */
+#slide1>ul>li{
+    display: inline-block;
+    font-size: 0;
 }
 
 
 /* 고르기 영역 */
 .content1_area{
    width: 100%;
-   height: 500px;
-  /* background-color: #7696fd; */
-   background-color: transparent;
+   height: 400px;
+  /*  background-color: #7696fd;  */
+  /*  background-color: transparent; */
    /* 글자설정 */
    display:  inline-block;
    align-items: center;
-   font-size: 40px;
-   font-weight: bold;
-   line-height: 50px;
- 
 }
 
+.round{
+	margin-top: 0px;
+	maddin-left: 300px;
+	width: 1300px;
+	height: 600px;
+	border: 1px solid dimgrey;
+}
 
 .iam{
-	position : relative;
-	display: block;
-	margin-top: 150px;
-	margin-left : 250px;
+	display: inline-block;
+	margin-top: 200px;
+	margin-left : 300px;
+    font-size: 60px;
+    /* font-weight: bold; */
+    line-height: 50px;
+    font-family: 'Do Hyeon', sans-serif;
 }
 
 #info_type{
-	 position: relative;
 	 display : flex;
-	 margin-top: -50px;
-     margin-left: 400px;
-     width: 300px;
-     height: 50px;
+	 margin-top: -60px;
+     margin-left: 500px;
+     width: 250px;
+     height: 60px;
      color: black;
-     font-size: 40px;
-     font-weight: bold;
+     font-size: 50px;
+     /* font-weight: bold; */
+     font-family: 'Do Hyeon', sans-serif;
 }
 
 #info_theme{
 	 position: relative;
 	 display : flex;
-	 margin-top: -50px;
-     margin-left: 750px;
-     width: 350px;
-     height: 50px;
+	 margin-top: -70px;
+     margin-left: 850px;
+     width: 400px;
+     height: 70px;
      color: black;
-     font-size: 40px;
-     font-weight: bold;
+     font-size: 50px;
+     /* font-weight: bold; */
+     font-family: 'Do Hyeon', sans-serif;
 }
 
 
 .want{
   position:relative;
   display : block;
-  margin-left: 350px;
+  margin-top: 50px;
+  margin-left: 450px;
+  font-size: 60px;
+  /* font-weight: bold; */
+  line-height: 50px;
+  font-family: 'Do Hyeon', sans-serif;
 }
 
 
 .btn_reload{
-   font-size: 20px;
-   font-weight: bold;
+   font-size: 30px;
+   /* font-weight: bold; */
    line-height: 5px;
    text-decoration: none; /* 링크 밑줄 제거 */
-   border-radius: 50px;
+   border-radius: 80px;
    width: 200px;
-   height: 80px;
+   height: 90px;
    background-color: white;
-   margin-top : 60px; 
-   margin-left : 350px;
+   margin-top : 90px; 
+   margin-left : 500px;
    cursor: pointer; /* 마우스 커서 모양 변경 */
+   font-family: 'Do Hyeon', sans-serif;
 }
 
 .btn_black{
    display: flex;
-   font-size: 20px;
-   font-weight: bold;
+   position: inline-block;
+   font-size: 30px;
+   /* font-weight: bold; */
    line-height: 5px;
    text-decoration: none; /* 링크 밑줄 제거 */
-   border-radius: 50px;
-   width: 200px;
-   height: 80px;
+   border-radius: 80px;
+   width: 230px;
+   height: 90px;
    color: white;
    background-color: black;
    text-align : center;
-   margin-top : -83px; 
-   margin-left : 750px;
+   margin-top : -100px; 
+   margin-left : 850px;
    cursor: pointer; /* 마우스 커서 모양 변경 */
+   font-family: 'Do Hyeon', sans-serif;
 }
 
 /* 여행지 목록 영역  */
 .content2_area{
    width: 100%;
-   /* background-color: #97ef97; */
-   background-color: transparent;
-   height: 500px;
+ /*   background-color: #97ef97; */
+   height: 1000px;
      /* 글자설정 */
-   font-size: 40px;
+   font-size: 30px;
    font-weight: bold;
    line-height: 50px;
 
 }
 
 .gallery_scroll{
-	pisition: relative;
-	width: 970px;
-	height: 500px;
-	margin-left : 180px;
+	pisition: absolute;
+	width: 1000px;
+	height: 820px;
+	margin-left : 250px;
 	overflow: hidden;
 	/* border:1px solid blue; */
 }
 
 .gallery_teel {
   display: flex;
+  text-align: center;
   float: left;
-  width: 970px; 
+  width: 1000px;
   transition: transform 0.5s;
-  margin-top : 50px;
+  margin-top : 200px;
 }
 
 .gallery_item {
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
   margin-right : 50px;
   scroll-snap-align: center; 
   cursor: pointer;
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 
@@ -262,22 +180,23 @@
 
 
 .slide_btn .prev {
+	display: relative;
 	background-color: transparent;
-	font-size: 40px;
-	width: 60px;
-	height : 60px;
+	font-size: 30px;
+	width: 80px;
+	height : 80px;
 	float: left;
-	margin-left: 30px;
-	margin-top: 200px;
+	margin-left: 100px;
+	margin-top: 500px;
 	border : 0px;
 }
 .slide_btn .next {
 	background-color: transparent;
-	font-size: 40px;
-	width: 60px;
-	height : 60px;
-	float: right;
-	margin-right: 30px;
+	font-size: 30px;
+	width: 80px;
+	height : 80px;
+    float: left;
+	margin-left: 1300px;
 	margin-top: -300px;
 	border : 0px;
 }
@@ -290,63 +209,4 @@
 
 
 
-/* footer nav 영역 */
-.footer_nav{
-    width:100%;
-    height:50px;
-}
-.footer_nav_container{
-    width: 100%;
-    height: 100%;
-    background-color:black;
-}
-.footer_nav_container>ul{
-    font-weight : bold;
-    float:left;
-    list-style:none;
-    position:relative;
-    padding-top:10px;
-    line-height: 27px;
-    font-family: dotum;
-    margin-left: 10px;
-}
-.footer_nav_container>ul>li{
-    display:inline;
-    width: 45px;
-    height: 19px;
-    padding: 10px 9px 0 10px;
-}
-.footer_nav_container>ul>span{
-    margin: 0 4px;
-}
-/* footer 영역 */
-.footer{
-    width:100%;
-    height:130px;
-    background-color:white;
-    padding-bottom : 50px;
-}
-.footer_container{
-    width: 100%;
-    height: 100%;
-    margin: auto;
-}
-.footer_left>img {
-    width: 150%;
-    height: 130px;
-    margin-left: -20px;
-    margin-top: -12px;
-}
-.footer_left{
-    float :left;
-    width: 170px;
-    margin-left: 30px;
-    margin-top : 30px;
-    
-}
-.footer_right{
-    float :left;
-    width: 680px;
-    margin-left: 60px;
-    margin-top : 30px;
-}
+

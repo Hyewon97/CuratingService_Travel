@@ -32,7 +32,7 @@
    
    
    
-  <bean id="pictureDao" class="dao.PictureDaoImp">
+  <bean id="pictureDao" class="picture.dao.PictureDaoImp">
      <property name="sqlSession" ref="sqlSession" />     
      
   </bean>
@@ -53,24 +53,24 @@
    
   
   <!-- Service -->
-  <bean id="pictureService" class="service.PictureServiceImp">
+  <bean id="pictureService" class="picture.service.PictureServiceImp">
     <property name="pictureDao" ref="pictureDao" />
   </bean>
   
   <!-- controller -->
-  <bean class="com.mycompany.myapp.PictureController" >
+  <bean class="picture.controller.PictureController" >
    <property name="pictureService" ref="pictureService" />
   </bean>
  
   
   <!-- tiles -->
-  <!-- <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+  <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
     <property name="definitions">
        <list>
           <value>/WEB-INF/tiles/tiles.xml</value>
        </list>
     </property>
-  </bean> -->
+  </bean> 
   
    
   <!-- View -->
@@ -79,10 +79,10 @@
   </bean>
   
   <!-- ViewResolver --> <!-- tiles를 이용해 view를 처리함 -->
- <!--  <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+   <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
      <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
       <property name="order" value="2" />
-  </bean> -->
+  </bean> 
   
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/views/" />

@@ -7,14 +7,14 @@
 
     <!-- 테마에 해당되는 사진 가져오기 -->
    <!-- mybatis에서 string은 알리아스로 제공하기에 parameterType="string"으로 써주면됨 -->
-   <select id="selectinfo_theme" parameterType="string" resultType="dto.PictureDTO">
-     SELECT p.pic_name, p.info_title 
-     FROM picture p, information i
-     WHERE p.info_title = i.info_title
+   <select id="selectinfo_theme" parameterType="java.util.Map" resultType="picture.dto.PictureDTO">
      
-     AND  i.info_theme = #{info_theme}
+     SELECT p.pic_name, t.info_title, i.info_content
+     FROM picture p, information i, types t
+     WHERE p.info_title = i.info_title and i.info_title = t.info_title     
+     AND i.info_theme = #{info_theme}
+     AND t.info_type = #{info_type}
      AND p.pic_name like '%_1.%'
    </select>
    
-
 </mapper>    

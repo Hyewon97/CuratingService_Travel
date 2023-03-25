@@ -7,35 +7,43 @@
 <meta charset="UTF-8">
 <title>EasySeoul</title>
 <link rel="stylesheet" href="resources/css/home.css"> 
+<script defer src="resources/js/first.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script defer src="resources/js/first.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+<!-- font-family: 'Do Hyeon', sans-serif; -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+
+<!-- font-family: 'IBM Plex Sans KR', sans-serif; -->
+
+
 <body>
-	<!-- Header 영역 -->
-	<div class="wrapper">
-		<div class="wrap">
-			<div class="top_area">
-				<div class="logo_area">
-					<a href="home.do"><img src="resources/img/logo.png"></a>
-				</div>
-				<div class="theme_area">
-					<input type="button" class="theme_button" value="테마여행">
-				</div>
-				<div class="freestyle_area">
-					<input type="button" class="freestyle_button" value="여행스타일">
-				</div>
-				<div class="notice_area">
-					<input type="button" class="notice_button" value="공지사항">
-				</div>
-				<div class="login_area">
-					<input type="button" class="login_button" value="로그인">
-				</div>
-				<div class="clearfix"></div>
+			<div class="container">
+			
+			<div class="content0_area">
+			 <div id="index_01">
+        <div id="slide1">
+            <ul>
+                <li><img src="./resources/images/cherryblossom.jpg" width="1300px" height="800px"></li>
+                <li><img src="./resources/images/seoulHanriver.jpg" width="1300px" height="800px"></li>
+                <li><img src="./resources/images/banpoHanriverBridge.jpg" width="1300px" height="800px"></li>
+            </ul>
+       </div>
+    </div>
+			
 			</div>
 			
 			<div class="content1_area">
 			
-
+             <div class ="round">
 				<span class="iam">나는</span>
 				
 				<form action="" method="get" name='frm' id="frm">
@@ -57,7 +65,7 @@
 					</select>
 				</form>
 
-				<span class="want"><br>여행을 즐기고 싶어요</span>
+				<span class="want"><br>여행을&nbsp;&nbsp; 즐기고&nbsp;&nbsp; 싶어요</span>
 
 				<div class="main-sc2-btn">
 					<div class="btn-type-round btn-reload">
@@ -68,7 +76,7 @@
 							value="&nbsp;&nbsp;&nbsp;내 취향 여행보기">
 					</div>
 				</div>
-			
+			</div>
 		
 		</div> <!-- class="content1_area" -->
 
@@ -87,8 +95,9 @@
     <c:forEach items="${pictureDtoList}" var="picture" >
     <div class="gallery_item" id="gallery_item">
     <img class="gallery_img" src="
-    images/${picture.pic_name}" width="280" height="300" alt="symbol image" title="symbol image">
+    images/${picture.pic_name}" width="300" height="300">
     <div>${picture.info_title}</div>
+    <div>${picture.info_content}</div>
   </div>
      </c:forEach> 
 		</div>
@@ -97,55 +106,8 @@
     <button class="next" id="next">&gt;</button>
 		</div>
      </div>
-    <%-- 
     
-   <c:set var='picture_0' value="${pictureDtoList[0]}" />
-  <div class="gallery-item">
-    <img class="gallery-img" src="
-    images/${picture_0.pic_name}" width="320" height="300" alt="symbol image" title="symbol image">
-    <div>${picture_0.info_title}</div>
-  </div>
-  
-  <c:set var='picture_1' value="${pictureDtoList[1]}" />  
-  <div class="gallery-item">
-    <img class="gallery-img" src="images/${picture_1.pic_name}" width="320" height="300" alt="symbol image" title="symbol image">
-    <div>${picture_1.info_title}</div>
-  </div>
-  
-  <c:set var='picture_2' value="${pictureDtoList[2]}" />  
-  <div class="gallery-item">
-    <img class="gallery-img" src="images/${picture_2.pic_name}" width="320" height="300" alt="symbol image" title="symbol image">
-    <div>${picture_2.info_title}</div>
-  </div> --%>
+</div>
  
-
-
- 
-			<!-- Footer 영역 -->
-			<div class="footer_nav">
-				<div class="footer_nav_container"></div>
-			</div>
-			<!-- class="footer_nav" -->
-
-			<div class="footer">
-				<div class="footer_container">
-
-					<div class="footer_left">
-						<img src="resources/img/logo.png">
-					</div>
-					<div class="footer_right">
-						Seoul Easy <br> <br> <strong>서울여행하세요~</strong>
-					</div>
-
-				</div>
-			</div>
-			<!-- class="footer" -->
-
-		
-		</div>
-		<!-- class="wrap" -->
-
-	</div>
-	<!-- class="wrapper" -->
 </body>
 </html>
