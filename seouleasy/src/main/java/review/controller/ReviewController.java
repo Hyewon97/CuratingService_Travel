@@ -77,6 +77,8 @@ public class ReviewController {
 	
 	
 
+	
+
 	// 로그인이 안된 상태면 "로그인이 필요합니다" 알람 띄우고 로그인 주소를 넘겨준다. -> 알람 기능 구현은 못함. 로그인 페이지로 넘어감
 	@RequestMapping(value = "/review/write.do", method = RequestMethod.GET)
 	public ModelAndView wrtieExecute(@ModelAttribute("dto") ReviewDTO dto, @ModelAttribute("pv") PageDTO pv,
@@ -169,7 +171,9 @@ public class ReviewController {
 		// 최근 페이지 가져오기
 		ratt.addAttribute("currentPage", currentPage);
 
-		return "redirect:/review/list.do"; // 리스트를 호출.
+//		return "redirect:/review/list.do"; // 리스트를 호출.
+// 		return "redirect:/view/list.do"; // 리스트를 호출.
+		return "redirect:/home.do"; // 리스트를 호출.. 홈이로 이동 됨
 	}
 
 	// 회원인 경우 삭제
@@ -182,14 +186,15 @@ public class ReviewController {
 	}
 	
 	//  관리자가 삭제
-	@RequestMapping("/review/adminDelete.do")
-	public String adminDeleteExecute(int num, int currentPage, HttpServletRequest request, RedirectAttributes ratt) {
-		//System.out.println("num:" + num);
-		ratt.addAttribute("currentPage", currentPage);
-		reviewService.reviewDeleteProcess(num, FileUpload.urlPath(request));
-		
-		return "redirect:/review/adminList.do";
-	}
+	/*
+	 * @RequestMapping("/review/adminDelete.do") public String
+	 * adminDeleteExecute(int num, int currentPage, HttpServletRequest request,
+	 * RedirectAttributes ratt) { //System.out.println("num:" + num);
+	 * ratt.addAttribute("currentPage", currentPage);
+	 * reviewService.reviewDeleteProcess(num, FileUpload.urlPath(request));
+	 * 
+	 * return "redirect:/review/adminList.do"; }
+	 */
 	
 	
 
@@ -199,6 +204,8 @@ public class ReviewController {
 		mav.setViewName("download");
 		return mav;
 	}
+	
+	
 	
 	
   

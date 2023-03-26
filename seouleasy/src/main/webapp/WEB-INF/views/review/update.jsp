@@ -13,7 +13,9 @@ $(document).ready(function(){
 		if ($('#review_title').val().trim() !== '' && $('#review_content').val().trim() !== '') {
 		    // replace new lines with <br> tags in content
 		    $('[name=review_content]').val($('[name=review_content]').val().replace(/\n/gi,'<br/>'));
+		    /* $('#frm').attr('action', 'update.do').submit(); */
 		    $('#frm').attr('action', 'update.do').submit();
+		   /*  history.go(-1); */
 		  } else {
 		    alert('제목과 내용을 작성해주세요.');
 		  }
@@ -42,6 +44,12 @@ $(document).ready(function(){
 	
 	<h1>리뷰</h1><br/>
 		<table class="table table-bordered mt-1">
+		
+		<tr>
+				<th>장소</th>
+				<td colspan="3">${dto.info_title}</td>
+			</tr>
+		
 			<tr>
 				<th>작성자</th> <!-- 멤버 코드 수정해야 하는 부분 -->
 				<td colspan="3"><input type="text" name="easyuser_name" id="easyuser_name"

@@ -68,7 +68,7 @@
 
 			<tr>
 			<td width="20%" align="center">장소</td>
-				<td><input type="text" name="info_title" readonly="readonly" value="<%=info_title%>" /></td>
+				<td><%=info_title%></td>
 			</tr>
 
 			<tr>

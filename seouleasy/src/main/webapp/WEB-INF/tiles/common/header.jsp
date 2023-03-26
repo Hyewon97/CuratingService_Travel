@@ -32,7 +32,6 @@
 			
 			</c:otherwise>
 		</c:choose>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/review/list.do?currentPage=1">리뷰</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/user.do">공지사항</a></li>
 		</ul>
 	</div>
