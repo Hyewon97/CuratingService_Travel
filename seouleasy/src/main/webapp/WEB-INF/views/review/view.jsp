@@ -9,7 +9,8 @@
 <script>
 	$(document).ready(function() {
 		$('#list').click(function() {
-			$('#frm').attr('action', 'list.do').submit();
+			/* $('#frm').attr('action', 'list.do').submit(); */
+			history.go(-1);
 		});
 
 		$('#update').click(function() {
@@ -24,11 +25,18 @@
 </script>
 <div class="container">
 
+	
 	<h1>리뷰</h1>
 	<br />
-	
+
 	<table class="table  table-bordered">
 
+		<tr>
+			<th>장소</th>
+			<td colspan="3">${dto.info_title}</td>
+		</tr>
+
+		<tr>
 		<tr>
 			<th width="20%">작성자</th>
 			<td>${dto.easyusersDTO.easyuser_name}</td>

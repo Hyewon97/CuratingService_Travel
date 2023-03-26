@@ -32,7 +32,7 @@
 	<!-- 사용자 이름은 나오는데 다른 데이터는 출력이 안됨. 어째서? -->
 	<!-- 데이터 출력 됨. DTO 변수명이랑 오라클 변수명이랑 같아야 한다. -->
 	<!-- 해결 됨 -->
-	<!-- <select id="reviewList" parameterType="review.dto.PageDTO" resultMap="listSelect">
+	<select id="reviewList" parameterType="review.dto.PageDTO" resultMap="listSelect">
 	<![CDATA[ 
 		SELECT b.*
 		FROM(SELECT rownum AS rm, a.*
@@ -42,13 +42,13 @@
 			ORDER BY num DESC, write_date ASC)a)b
 			WHERE b.rm>=#{startRow} AND b.rm<=#{endRow}
 		]]>
-	</select> -->
+	</select> 
 	
 
 	<!-- 덕수궁 때문에 추가 -->
 	<!-- r.info_title= #{info_title, jdbcType=VARCHAR} -->
 	<!-- info_title이 null값으로 들어오는거 같음 -->
-	<select id="reviewList" parameterType="review.dto.PageDTO" resultMap="listSelect">
+	<!-- <select id="reviewList" parameterType="review.dto.PageDTO" resultMap="listSelect">
 	<![CDATA[ 
 		SELECT b.*
 		FROM(SELECT rownum AS rm, a.*
@@ -58,7 +58,7 @@
 			ORDER BY num DESC, write_date ASC)a)b
 			WHERE (b.rm>=#{startRow} AND b.rm<= #{endRow})
 		]]>
-	</select>
+	</select> -->
 
 
 	<!-- 0이면 제목글, 0이 아니면 답변글 -->
