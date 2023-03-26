@@ -182,7 +182,7 @@ public class ReviewController {
 		ratt.addAttribute("currentPage", currentPage);
 		reviewService.reviewDeleteProcess(num, FileUpload.urlPath(request));
 		
-		return "redirect:/review/list.do";
+		return "redirect:/home.do";
 	}
 	
 	//  관리자가 삭제

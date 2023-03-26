@@ -18,7 +18,7 @@ public class ReviewDownLoadView extends AbstractView {
 	
 	private ReviewDAO reviewDao;
 	
-	private void ReviewDownLoadView() {
+	private ReviewDownLoadView() {
 
 	}
 	
