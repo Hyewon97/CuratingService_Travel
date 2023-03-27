@@ -29,24 +29,8 @@ public class NoticeController {
 	public void setNoticeDao(NoticeDAO notiDao) {
 		this.notiDao = notiDao;
 	}
-////////////////
 
-	/*
-	 * @RequestMapping(value = "/list.do") public ModelAndView process(ModelAndView
-	 * mav) { mav.addObject("list", notiDao.list()); mav.setViewName("noti/list");
-	 * return mav; }
-	 * 
-	 * 
-	 * @RequestMapping(value = "/list.do") public ModelAndView
-	 * listExecute(@ModelAttribute("pv") PageDTO pv, ModelAndView mav) {
-	 * System.out.println("pv:" + pv.getCurrentPage()); int totalRecord =
-	 * notiDao.count(); if (totalRecord >= 1) { if (pv.getCurrentPage() == 0)
-	 * pv.setCurrentPage(1); this.pdto = new PageDTO(pv.getCurrentPage(),
-	 * totalRecord); mav.addObject("pv", this.pdto); mav.addObject("aList",
-	 * notiDao.list(this.pdto)); } mav.setViewName("noti/list"); return mav; }
-	 */
 
-	
 	// 삽입 기능 추가
 	@RequestMapping(value = "/noti/insert.do")
 	public String insert(int num) {
@@ -55,10 +39,6 @@ public class NoticeController {
 		
 	}
 	
-	/*
-	 * @RequestMapping(value = "/insert.do", method = RequestMethod.GET) public
-	 * String insert() { return "noti/insert"; }
-	 */
 
 	// 로그인이 안된 상태면 로그인창으로 넘겨준다.
 	@RequestMapping(value = "/insert.do", method = RequestMethod.GET)
@@ -69,7 +49,6 @@ public class NoticeController {
 		Object sessionObj = session.getAttribute("authInfo");
 		
 		// 세션 정보 확인
-//		System.out.println(sessionObj);
 	    if (sessionObj == null) {
 
 	    	
@@ -104,7 +83,6 @@ public class NoticeController {
 		Object sessionObj = session.getAttribute("authInfo");
 		
 		// 세션 정보 확인
-//		System.out.println(sessionObj);
 	    if (sessionObj == null) {
 
 	    	
@@ -120,16 +98,10 @@ public class NoticeController {
 
 	@RequestMapping(value = "/update.do", method = RequestMethod.POST)
 	public String update(NoticeDTO dto) {
-		System.out.println("Update Query : " + dto.getNum());
 		notiDao.updateMethod(dto);
 		return "redirect:/user.do";
 	}
 
-//	@RequestMapping(value = "/delete.do")
-//	public String delete(int num) {
-//		notiDao.deleteMethod(num);
-//		return "redirect:/list.do";
-//	}
 
 	@RequestMapping(value = "/delete.do")
 	public String delete(int num, int currentPage, HttpServletRequest request, RedirectAttributes ratt) {
@@ -139,10 +111,7 @@ public class NoticeController {
 		return "redirect:/user.do";
 	}
 
-//	@RequestMapping(value = "/show.do")
-//	public String show(int num) {
-//		return "noti/show";
-//	}
+
 
 	@RequestMapping(value = "/noti/show.do")
 	public String show(int num, int currentPage, RedirectAttributes ratt) {
@@ -161,7 +130,6 @@ public class NoticeController {
 
 	@RequestMapping(value = "/show.do", method = RequestMethod.POST)
 	public String show(NoticeDTO dto) {
-		System.out.println("Show Query : " + dto.getNum());
 		notiDao.showMethod(dto);
 		return "redirect:/list.do";
 	}
@@ -169,7 +137,6 @@ public class NoticeController {
 	// 페이징 작업
 	@RequestMapping("/user.do")
 	public ModelAndView listExecute1(@ModelAttribute("pv") PageDTO pv, ModelAndView mav) {
-		System.out.println("pv:" + pv.getCurrentPage());
 		int totalRecord = notiDao.count();
 		if (totalRecord >= 1) {
 			if (pv.getCurrentPage() == 0)

@@ -11,11 +11,6 @@ public class PictureDTO {
 		
 	}
 
-	
-
-
-
-
 	public PictureDTO(String pic_name, String info_title, String info_theme, String info_content, String info_type) {
 		this.pic_name = pic_name;
 		this.info_title = info_title;
@@ -23,9 +18,6 @@ public class PictureDTO {
 		this.info_content = info_content;
 		this.info_type = info_type;
 	}
-
-
-
 
 
 

@@ -42,13 +42,13 @@ public class ReviewController {
 	@RequestMapping("/review/list.do")
 	public ModelAndView listExecute(@ModelAttribute("pv") PageDTO pv, String info_title, String info_content, ModelAndView mav) {
 		int totalRecord = reviewService.reviewCountProcess();
-		
-		//System.out.println("인포 타이틀 : "+info_title);
+
 		
 
 		if (totalRecord >= 1) {
 			if (pv.getCurrentPage() == 0)
 				pv.setCurrentPage(1); // 현재 페이지에 1을 넣어줌
+			
 			this.pdto = new PageDTO(pv.getCurrentPage(), totalRecord);
 			mav.addObject("pv", this.pdto);
 			mav.addObject("aList", reviewService.reviewListProcess(this.pdto));
@@ -59,26 +59,8 @@ public class ReviewController {
 		return mav;
 	}
 
-	// 관리자 페이지로 이동... 관리자 페이지 미구현.
-	/*
-	 * @RequestMapping("/review/adminList.do") public ModelAndView
-	 * adminListExecute(@ModelAttribute("pv") PageDTO pv, ModelAndView mav) { int
-	 * totalRecord = reviewService.reviewCountProcess(); //
-	 * System.out.println(totalRecord); // 데이터 넘어오는지 확인. 총 개수 확인
-	 * 
-	 * if (totalRecord >= 1) { if (pv.getCurrentPage() == 0) pv.setCurrentPage(1);
-	 * // 현재 페이지에 1을 넣어줌 this.pdto = new PageDTO(pv.getCurrentPage(), totalRecord);
-	 * mav.addObject("pv", this.pdto); mav.addObject("aList",
-	 * reviewService.reviewListProcess(this.pdto));
-	 * 
-	 * } mav.setViewName("review/adminList"); // review/adminList로 이동 (관리자용 페이지)
-	 * //System.out.println(); return mav; }
-	 */
 	
 	
-
-	
-
 	// 로그인이 안된 상태면 "로그인이 필요합니다" 알람 띄우고 로그인 주소를 넘겨준다. -> 알람 기능 구현은 못함. 로그인 페이지로 넘어감
 	@RequestMapping(value = "/review/write.do", method = RequestMethod.GET)
 	public ModelAndView wrtieExecute(@ModelAttribute("dto") ReviewDTO dto, @ModelAttribute("pv") PageDTO pv,
@@ -88,7 +70,6 @@ public class ReviewController {
 		Object sessionObj = session.getAttribute("authInfo");
 		
 		// 세션 정보 확인
-//		System.out.println(sessionObj);
 	    if (sessionObj == null) {
 
 	    	
@@ -119,8 +100,8 @@ public class ReviewController {
 
 		
 
-		/* return "redirect:/review/list.do"; 
-		 * */
+		/* return "redirect:/review/list.do"; */
+	
 		return "redirect:/home.do";
 	}
 
@@ -185,16 +166,6 @@ public class ReviewController {
 		return "redirect:/home.do";
 	}
 	
-	//  관리자가 삭제
-	/*
-	 * @RequestMapping("/review/adminDelete.do") public String
-	 * adminDeleteExecute(int num, int currentPage, HttpServletRequest request,
-	 * RedirectAttributes ratt) { //System.out.println("num:" + num);
-	 * ratt.addAttribute("currentPage", currentPage);
-	 * reviewService.reviewDeleteProcess(num, FileUpload.urlPath(request));
-	 * 
-	 * return "redirect:/review/adminList.do"; }
-	 */
 	
 	
 

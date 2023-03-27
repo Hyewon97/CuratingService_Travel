@@ -13,13 +13,10 @@ public class ReviewDTO {
 	private String email, info_title, review_title, review_content;
 	private Date write_date;
 	
-//	private EasyusersDTO easyusersDTO;
 	
 	// easyuser DTO 추가
 	private EasyusersDTO easyusersDTO;
 	
-	
-
 
 	
 	// reivew 테이블의 파일 첨부를 처리하는 멤버변수

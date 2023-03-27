@@ -6,10 +6,7 @@
     
  
 <!-- 매퍼 아이디는 DAO이름이랑 같게 해야한다. -->
-
-<!-- 갯수 받아 옴. 컨트롤러에서 확인함 -->
 <!-- 페이징 작업을 위해 데이터 총 갯수를 받아온다. -->
-<!-- 해결 됨 -->
 <mapper namespace="review">
 	<select id="reviewCount" resultType="int">
 		SELECT count(*) FROM review
@@ -45,28 +42,8 @@
 	</select> 
 	
 
-	<!-- 덕수궁 때문에 추가 -->
-	<!-- r.info_title= #{info_title, jdbcType=VARCHAR} -->
-	<!-- info_title이 null값으로 들어오는거 같음 -->
-	<!-- <select id="reviewList" parameterType="review.dto.PageDTO" resultMap="listSelect">
-	<![CDATA[ 
-		SELECT b.*
-		FROM(SELECT rownum AS rm, a.*
-			FROM(SELECT r.*, m.easyuser_name
-			FROM review r, easyuser m
-			WHERE (r.email=m.email(+)) and r.info_title= #{info_title, jdbcType=VARCHAR}
-			ORDER BY num DESC, write_date ASC)a)b
-			WHERE (b.rm>=#{startRow} AND b.rm<= #{endRow})
-		]]>
-	</select> -->
 
 
-	<!-- 0이면 제목글, 0이 아니면 답변글 -->
-	<!-- 아래를 수정해야 함 ... 작업 중-->
-	<!-- 멤버 연결하고 멤버 이메일 수정해야 함...	멤버 이메일로 수정 -->
-	<!-- ref가 1일 때 답변글인데 나는 답변글 기능이 없잖아? 그럼 그 부분은 삭제가 필요하고 일단 변수명도 erd랑 같도록 수정해야 한다. -->
-	<!-- 일부분 해결 됨. 이메일이랑 info_title만 받아오면 된다. -->
-	<!-- 멤버 이메일로 수정 완. 상세페이지 연결 후 info_title을 받아와야 함 -->
 	<insert id="reviewSave" parameterType="review.dto.ReviewDTO">
 		INSERT INTO review(num, email,info_title,review_title, review_content,write_date,review_count,route_name)
 		VALUES (review_seq.nextval, #{email, jdbcType=VARCHAR}, #{info_title, jdbcType=VARCHAR}, #{review_title, jdbcType=VARCHAR}, #{review_content, jdbcType=VARCHAR}, sysdate, 0, #{route_name, jdbcType=VARCHAR})	 

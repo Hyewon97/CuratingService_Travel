@@ -11,19 +11,6 @@
 		  alert(returnUrl + "요청한 페이지는 회원에게만 제공됩니다."); 
 	  
 	  
-	  
-	  /* 	  if("${easyusersDTO}"){	     
-	     $("#email").val("${easyusersDTO.email}");
-	     $("#rememberEmail").prop('checked',true);	     
-	  }
-	  
-	  $('#rememberEmail').click(function(){
-		  let chk = $(this).is(":checked");
-		  console.log(chk);
-		  if(!chk){
-			  $.removeCookie('REMEMBER',  { path: '/' });
-		  } 
-	  });*/
   });
   
   
@@ -44,11 +31,6 @@
 					<input type="password" class="form-control" name="easyuser_pass" placeholder="Password" required="required">	
 				</div>   
 				
-				<!-- <div class="form-check mt-3">
-				<label class="form-check-label" for="rememberEmail">Email 기억하기:</label>
-					<input type="checkbox" class="form-check-input" name="rememberEmail" placeholder="rememberEmail" id="rememberEmail" > 
-					
-				</div>  -->
 				     
 				<div class="form-group text-center mt-5">
 				    <!-- <input type="text" name="returnUrl" value="${param.returnUrl}" />  -->

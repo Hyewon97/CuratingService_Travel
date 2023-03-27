@@ -60,7 +60,7 @@
 						<option value="alone" selected="selected">나 홀로</option>
 						<option value="kids">아이와 함께</option>
 						<option value="parents">부모님과 함께</option>
-						<option value="friends">친구과 함께</option>
+						<option value="friends">친구와 함께</option>
 					</select>
 				
 					<select name="info_theme"
@@ -86,13 +86,7 @@
 				</div>
 			
 		
-		</div> <!-- class="content1_area" -->
-
-<%-- <c:forEach items="${info_theme_list}" var="map" varStatus="status">
-						 <p>${map}</p>
-						  <option value="${map.INFO_THEME}">${map.INFO_TITLE}</option>
-						
-						</c:forEach> --%>
+		</div> 
 
 			<div class="content2_area">
 			 <div class="slide_btn" id="slide_btn">

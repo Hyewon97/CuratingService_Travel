@@ -32,7 +32,6 @@ public class EasyusersDTO {
 	}
 
 	public void setEasyuser_pass(String easyuser_pass) {
-		//System.out.println(this.easyuser_pass);
 		this.easyuser_pass = easyuser_pass;
 	}
 
