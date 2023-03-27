@@ -29,15 +29,6 @@
 	          </div>  
 	          
 	          
-<!--  	           <div class="mb-3">
-	            <label for="passChk">비밀번호 재입력</label>
-	            <input type="text"  class="form-control" name="member_passChk" 
-	            pattern="[a-zA-Z0-9]{8,15}" placeholder="영문,숫자 8~15자" required>
-	           <div class="invalid-feedback">
-	              비밀번호가 일치하지 않습니다.
-	            </div> 
-	          </div>     -->
-	          
 	          
 	           <div class="mb-3">
 	              <label for="name">이름</label>

@@ -16,21 +16,13 @@
 			let frmdel= $(this).parent();
 			
 		// 관리자가 리뷰 글 지우는 코드 
-		//	alert(frmdel[0]));
-			//$('#frm').attr('action', 'adminDelete.do').submit();
+
 			frmdel[0].setAttribute("action", 'adminDelete.do');
 			frmdel[0].submit();
 		});
 	});
 </script>
 
-
-
-<!-- 관리자용 페이지는 굳이 많이 있을필요가 없잖아..?
-	
-	어떤 여행지인지 알려주는 부분이 있으면 좋긴 할듯
-	
-	 -->
 
 
 <table class="table table-border mt-1">

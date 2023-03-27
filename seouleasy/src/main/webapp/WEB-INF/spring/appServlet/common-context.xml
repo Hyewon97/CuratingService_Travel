@@ -75,10 +75,7 @@
 		<constructor-arg ref="sqlSessionFactoryBean" />
 	</bean>
 
-	<!-- 선언적 트랜잭션 : <tx:advice> 태그를 이용한 트랜잭션 -->
-	<!-- 매니저 one.xml과 two.xml가 관리하는 애가 달라서 중복이 아니다. -->
-	<!-- Spring JDBC나 Mybatis를 이용해서 DB연동을 처리하는 경우 DataSourceTransactionManager이 
-		트랜잭션 관리자로 사용된다. -->
+	
 	<!-- [4] TransactionManager 빈 선언 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

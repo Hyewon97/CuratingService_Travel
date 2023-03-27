@@ -27,7 +27,6 @@ public class PictureController {
 	public ModelAndView home(@RequestParam Map<String, String> map) {
 		ModelAndView mav = new ModelAndView();
 
-		// System.out.println("info_theme"+ map.get("info_theme"));
 		if (map.get("info_theme") == null) {
 			map.put("info_theme", "History");
 			map.put("info_type", "alone");

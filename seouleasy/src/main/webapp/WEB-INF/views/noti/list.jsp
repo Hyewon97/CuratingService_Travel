@@ -4,29 +4,7 @@
 
 <c:set var="contextPath" value="{$pageContext.request.contextPath}" /><!-- /myapp프로젝트 경로 리턴 -->
 
-<!-- <style>
-  h1{text-align:center;
-     font-size:50px
-  
-  }
-  
-  table {
-         
-         width:1700px;
-         border: 10px, white;
-         height:600px;
-         margin-left:auto; 
-         margin-right:auto;
 
-         align:left;
-         outline :  double 9px white;
-         text-align:center;
-              
-  }
-  
-
- 
-</style> -->
 
 <div class="container">
      <div class="input-form-backgroud row">

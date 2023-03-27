@@ -11,13 +11,7 @@
 
 
 <script>
-	/* $(document).ready(function() {
-		$('#write').click(function() {
-			$('#frm').attr('action', 'write.do').submit();
-		});
 
-	}); */
-	
 	$(document).ready(function() {
 		$('#write').click(function() {
 			$('#frm').attr('action', 'write.do').
@@ -27,13 +21,7 @@
 
 	});
 
-	/* $(document).ready(function() {
-		$('#write').click(function() {
-			$('#frm').attr('action', 'write.do').
-			append($('<input>').attr({ type: 'hidden', name: 'info_title', value:'${infoList[0].info_title}' })).submit();
 
-	});
-	 */
 </script>
 
 

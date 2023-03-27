@@ -12,8 +12,6 @@ public class PageDTO {
 	private int endPage; // 한 블록의 끝 페이지 번호
 	private int number;
 
-//	private String searchKey;
-//	private String searchWord;
 
 	public PageDTO() {
 

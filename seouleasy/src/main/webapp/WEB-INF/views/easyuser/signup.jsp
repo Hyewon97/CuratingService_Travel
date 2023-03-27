@@ -56,28 +56,9 @@
              
              
              
-<!--          <div class="mb-3">
-                 <label for="nick_name">닉네임</label>
-                 <input type="text" class="form-control" name="nick_name" 
-                 pattern="[가-힣]{2,7}" placeholder="예) 귀염둥이 " required>
-                 <div class="invalid-feedback">
-                   닉네임을 형식에 맞게 입력해주세요.(한글 2~7자)
-                 </div>
-               </div> -->
-               
-               
-               
-            
 
-<!-- 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Check Nickname</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body> -->
+               
+           
     <div class="mb-3">
        
             <label for="nick_name">닉네임</label>
@@ -88,9 +69,6 @@
 
     </div>
 
-    
-<!-- </body>
-</html> -->
 
 
 

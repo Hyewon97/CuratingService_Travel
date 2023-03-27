@@ -73,44 +73,6 @@ public class NoticeDTO {
 		this.easyusersDTO = easyusersDTO;
 	}
 
-//	public int getNotice_num() {
-//		return notice_num;
-//	}
-//
-//	public void setNotice_num(int notice_num) {
-//		System.out.println("setNotice_num() : " + notice_num );
-//		
-//		this.notice_num = notice_num;
-//	}
-//
-//	public String getNotice_title() {
-//		return notice_title;
-//	}
-//
-//	public void setNotice_title(String notice_title) {
-//
-//		System.out.println("setNotice_title() : " + notice_title );
-//		this.notice_title = notice_title;
-//	}
-//
-//	public String getNotice_content() {
-//		return notice_content;
-//	}
-//
-//	public void setNotice_content(String notice_content) {
-//
-//		System.out.println("setNotice_content() : " + notice_content );
-//		this.notice_content = notice_content;
-//	}
-//
-//	public String getWrite_date() {
-//		return write_date;
-//	}
-//
-//	public void setWrite_date(String write_date) {
-//
-//		System.out.println("setWrite_date() : " + write_date );
-//		this.write_date = write_date;
-//	}
+
 
 }

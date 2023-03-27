@@ -9,7 +9,6 @@
 <script>
 	$(document).ready(function() {
 		$('#list').click(function() {
-			/* $('#frm').attr('action', 'list.do').submit(); */
 			history.go(-1);
 		});
 
